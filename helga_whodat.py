@@ -69,4 +69,4 @@ def whodat(client, channel, nick, message, cmd, args):
         )
 
     if not celebs:
-        return 'Don\'t rekognize anyone with confidence :('
+        return 'Don\'t rekognize anyone :('
