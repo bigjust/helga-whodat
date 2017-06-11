@@ -57,8 +57,11 @@ def whodat(client, channel, nick, message, cmd, args):
         if celeb['MatchConfidence'] > 75:
             celebs.append(celeb['Name'])
 
-    if not celebs:
-        return 'Don\'t rekognize anyone with confidence :('
-
     for celeb_name in celebs:
         client.msg(channel, celeb_name)
+
+    if not celebs and response['CelebrityFaces']:
+        return 'hmmm, {}?'.format(response['CelebrityFaces'][0]['Name'])
+
+    if not celebs:
+        return 'Don\'t rekognize anyone with confidence :('
